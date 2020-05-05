@@ -26,6 +26,12 @@ import magic_docker
 
 magic_docker.J_Magic_Docker()
 
+source code : github
+https://github.com/BabakEA/magic_docker
+
+PyPi : 
+pip install magic_docker 
+
 
 ![Magic_Docker](data/Magic.gif)
 
