@@ -1,3 +1,4 @@
+
 ##############################################
 """
 
@@ -28,13 +29,12 @@ import ipywidgets
 from ipywidgets import widgets
 import os,sys
 import re
-import pandas as pd
-import numpy as np 
 import pkg_resources
 import datetime
 import subprocess
 import platform
-from gtts import gTTS
+import numpy as np
+#from gtts import gTTS
 
 
 
@@ -97,9 +97,13 @@ if __name__ == "__main__":
 """    
 
 class J_Magic_Docker:
-    def __init__(self):
+    def __init__(self,manual_reject=0):
         #print(Greeting_Message)
         self.lib=[]
+        if manual_reject==0 :
+            self.manual_reject=["pkg_resources"]
+        else:
+            self.manual_reject=["pkg_resources"]+manual_reject
         self.python_ver=sys.version[0:3]
         self.embeded_lib = stdlib_list(self.python_ver)#python version detection
         self.Tag=datetime.date.today().strftime("%m%d%Y")#Docker Tag declaration
@@ -184,7 +188,7 @@ class J_Magic_Docker:
 
                     self.lib+=tem
         self.lib=list(set(self.lib))
-        self.lib=[x for x in self.lib if x not in self.embeded_lib]
+        self.lib=[x for x in self.lib if x not in self.embeded_lib+self.manual_reject]
         
         display("The following Libraries have been detected : ")
         display(self.lib)
@@ -240,14 +244,16 @@ class J_Magic_Docker:
             
         display("The following Text boxes are your Docker baselines:")
         display("**************************************************** ")
-        display("Requirements : is including all the required libraries, You can add if you need more ...")
+        display("Requirements : is including all the required libraries, You can add more if any of them has been neglected")
+        
         display("**************************************************** ")
         
         
         text = widgets.Textarea(
         value=self.STR,
         placeholder='Paste ticket description here!',
-        description='Requirements:'
+        description='Requirements:',
+         width ='15cm'
         )
         #disabled=False)
 
@@ -262,12 +268,14 @@ class J_Magic_Docker:
         
         display("****************************************************")
         display("Docker File : is including all the requirments such as OS, python, and the modle requirments. you can install more tools if you want ...")
+        display("If you are using proxy, please replace pip install package with  pip --proxy http://PROXYDOM:PROXYPORT install package")
         display("**************************************************** ")
               
         DOCKER_text = widgets.Textarea(
         value=self.DOC_TEXT,
         placeholder='Paste ticket description here!',
-        description='Dockerfile:'
+        description='Dockerfile:',
+        width ='600px'
         )
         #disabled=False)
 
@@ -304,7 +312,7 @@ class J_Magic_Docker:
                   "\n",
                   "docker build -t {}:{} .".format(self.Docker_name,self.Tag)+" \n",
                   "docker save {} > {}".format(self.Docker_name,self.Docker_name+".tar")+" \n",
-                  "echo 'Thnak you' \n"]
+                  "docker run -p 8888:8888 {}:{}".format(self.Docker_name,self.Tag)]
 
         shel_file.writelines(Shel_TEXT)
         shel_file.close()
@@ -314,11 +322,11 @@ class J_Magic_Docker:
     def Write_Windows(self):
         display("****************************************************")
        
-        shel_file = open('./Permission_set.sh', 'w')
+        shel_file = open('./Permission_set.bat', 'w')
         Shel_TEXT=["\n",
                   "docker build -t {}:{} .".format(self.Docker_name,self.Tag)+" \n",
                   "docker save {} > {}".format(self.Docker_name,self.Docker_name+".tar")+" \n",
-                  "echo 'Thnak you' \n"]
+                  "docker run -p 8888:8888 {}:{}".format(self.Docker_name,self.Tag)]
 
         shel_file.writelines(Shel_TEXT)
         shel_file.close()
@@ -339,7 +347,9 @@ class J_Magic_Docker:
                   "\n",
                   "docker build -t {}:{} .".format(self.Docker_name,self.Tag)+" \n",
                   "docker save {} > {}".format(self.Docker_name,self.Docker_name+".tar")+" \n",
-                  "echo 'Thnak you' \n"]
+                  "echo 'testing the Docker image ' \n",
+                  "docker run -p 8888:8888 {}:{}".format(self.Docker_name,self.Tag)
+        ]
 
         shel_file.writelines(Shel_TEXT)
         shel_file.close()
