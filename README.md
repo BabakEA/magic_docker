@@ -27,7 +27,7 @@ import magic_docker
 magic_docker.J_Magic_Docker()
 
 
-
+![Magic_Docker](data/Magic.gif)
 
 
 
