@@ -2,8 +2,8 @@
 Magic Docker is an automated tools to build a Docker Image
 
 
-Hi there 
-I hope all is well, and you are enjoying the time. 
+Hey there
+ 
 
 You are using the Magic_Docker Tools. It is an automated python application to create an error-free Docker Image. 
 
