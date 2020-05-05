@@ -17,3 +17,18 @@ Thank you.
 
 Babak.EA
 
+
+How to run : 
+
+<b> using Jupyter notbook </b> 
+
+import magic_docker
+
+magic_docker.J_Magic_Docker()
+
+
+
+
+
+
+
