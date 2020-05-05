@@ -31,6 +31,9 @@ https://github.com/BabakEA/magic_docker
 **************************************
 PyPi : 
 https://pypi.org/project/magic-docker/
+
+**************************************
+
 <b> pip install magic_docker </b>
 
 **************************************
