@@ -1,4 +1,4 @@
 
-docker build -t Docker_magic_docker_v2:05042020 . 
-docker save Docker_magic_docker_v2 > Docker_magic_docker_v2.tar 
+docker build -t Docker_magic_docker:05052020 . 
+docker save Docker_magic_docker > Docker_magic_docker.tar 
 echo 'Thnak you' 
