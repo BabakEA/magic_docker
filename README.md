@@ -19,6 +19,7 @@ first part: What is the docker file and how Magic_docker is working
 https://www.youtube.com/watch?v=Sh4PdZ9Mcn4
 
 second part: Magic_docker implementation_ create a Docker image using magic_docker in 5 minutes.
+
 https://www.youtube.com/watch?v=-AQWuDLIqms
 
 
