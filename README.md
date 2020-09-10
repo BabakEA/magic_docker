@@ -8,7 +8,7 @@ Hey there
 You are using the Magic_Docker Tools. It is an automated python application to create an error-free Docker Image. 
 
 The current version has been programmed for Linux Os if you are a Linux user, good news! Magic _docker will take care of all the steps. Please sweet yourself and enjoy the show. 
-If you are windows or MAC user, Magic docker still will help you. I will create the Dockerfile, requirements, and the shell script to build and save the created docker image. 
+If you are windows or MAC user, Magic docker still will help you. It will create the Dockerfile, requirements, and the shell script to build and save the created docker image. 
 You need to run the shell command manually. 
 
 Please feel free to contact me if you needed any further assistance. 
