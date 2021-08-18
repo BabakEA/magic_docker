@@ -43,6 +43,14 @@ import magic_docker
 
 magic_docker.J_Magic_Docker()
 
+
+
+remove docker :
+docker image rm image_id1 image_id2 image_id3 ....
+LIKE :
+docker image rm 08267a251568 48c1811e1f25 98bfbacf1610
+
+
 source code : github
 https://github.com/BabakEA/magic_docker
 **************************************
