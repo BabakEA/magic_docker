@@ -41,7 +41,7 @@ How to run :
 
 import magic_docker
 
-magic_docker.J_Magic_Docker()
+magic_docker.Magic()
 
 
 
